@@ -493,7 +493,8 @@ class HttpRpcServer(AbstractRpcServer):
     opener.add_handler(urllib2.HTTPSHandler())
     opener.add_handler(urllib2.HTTPErrorProcessor())
     if self.save_cookies:
-      self.cookie_file = os.path.expanduser("~/.codereview_upload_cookies")
+      #self.cookie_file = os.path.expanduser("~/.codereview_upload_cookies")
+      self.cookie_file =  '/c/Python27/.codereview_upload_cookies'
       self.cookie_jar = cookielib.MozillaCookieJar(self.cookie_file)
       if os.path.exists(self.cookie_file):
         try:
@@ -507,7 +508,7 @@ class HttpRpcServer(AbstractRpcServer):
       else:
         # Create an empty cookie file with mode 600
 		#self.cookie_file = "/c/Python27/.codereview_upload_cookies"
-        fd = os.open("/c/Python27/.codereview_upload_cookies", os.O_CREAT, 0o600)
+        fd = os.open(self.cookie_file, os.O_CREAT, 0o600)
         os.close(fd)
       # Always chmod the cookie file
       os.chmod(self.cookie_file, 0o600)
