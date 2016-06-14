@@ -257,6 +257,7 @@ class AbstractRpcServer(object):
     self.save_cookies = save_cookies
     self.account_type = account_type
     self.opener = self._GetOpener()
+	#print self.opener
     if self.host_override:
       LOGGER.info("Server: %s; Host: %s", self.host, self.host_override)
     else:
