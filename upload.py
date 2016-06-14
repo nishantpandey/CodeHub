@@ -506,7 +506,8 @@ class HttpRpcServer(AbstractRpcServer):
           pass
       else:
         # Create an empty cookie file with mode 600
-        fd = os.open(self.cookie_file, os.O_CREAT, 0o600)
+		#self.cookie_file = "/c/Python27/.codereview_upload_cookies"
+        fd = os.open("/c/Python27/.codereview_upload_cookies", os.O_CREAT, 0o600)
         os.close(fd)
       # Always chmod the cookie file
       os.chmod(self.cookie_file, 0o600)
