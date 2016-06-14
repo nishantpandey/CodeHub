@@ -257,11 +257,10 @@ class AbstractRpcServer(object):
     self.save_cookies = save_cookies
     self.account_type = account_type
     self.opener = self._GetOpener()
-	#print self.opener
     if self.host_override:
-      LOGGER.info("Server: %s; Host: %s", self.host, self.host_override)
+      LOGGER.info("Server: %s; Host: %s Opener %s", self.host, self.host_override, self.opener)
     else:
-      LOGGER.info("Server: %s", self.host)
+      LOGGER.info("Server: %s opener is %s", self.host, self.opener)
 
   def _GetOpener(self):
     """Returns an OpenerDirector for making HTTP requests.
